@@ -1,0 +1,35 @@
+<!doctype html>
+<html><head>
+<meta charset="UTF-8">
+<title>blip</title>
+</head>
+<body>
+<input onclick="get()" value="get">
+
+
+
+<script>
+
+var url = "http://gist.github.com/raw/2906521/blip.json";
+
+function get(){
+	var client = new XMLHttpRequest();
+	client.open("GET", url, false);
+	client.send(null);
+	var r = client.response;
+	var blips = r.blips;
+	var ul = document.createElement('ul');
+	for (var i = 0; i < blips.length; i++) {
+		var blip = blips[i];
+		var li = document.createElement('li');
+		li.innerHTML = blip.name;
+		ul.appendChild(li);
+	};
+	body.appendChild(ul);
+}
+
+
+</script>
+<style>*{font:12px monospace;}</style>
+</body>
+</html>
