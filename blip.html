@@ -10,12 +10,21 @@
 
 <script>
 
-var url = "https://raw.github.com/gist/2906521/blip.json";
+var url = "https://api.github.com/gists/2906521?callback=read";
 
 function get(){
 	var client = new XMLHttpRequest();
 	client.open("GET", url, false);
 	client.send(null);
+}
+
+function read(response){
+  var data = response.data
+  console.log(data);
+  console.log(data.files.blip.json.content);
+
+  /*
+
 	var r = client.response;
 	var blips = r.blips;
 	var ul = document.createElement('ul');
@@ -26,8 +35,9 @@ function get(){
 		ul.appendChild(li);
 	};
 	body.appendChild(ul);
-}
+	*/
 
+}
 
 </script>
 <style>*{font:12px monospace;}</style>
