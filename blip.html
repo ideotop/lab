@@ -16,9 +16,12 @@ function get(){
 	var client = new XMLHttpRequest();
 	client.open("GET", url, false);
 	client.send(null);
+	console.log('get reponse:'+client.response);
 }
 
 function read(response){
+	console.log('read');
+	console.log('reponse:'+response);
   var data = response.data
   console.log(data);
   console.log(data.files.blip.json.content);
